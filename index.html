@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0b0c;
+            color: #d1d1d6;
+        }
+
+        /* 3D Perspective Context */
+        .project-perspective {
+            perspective: 2400px;
+        }
+
+        /* Front Cover: Hinges on the left */
+        .project-cover {
+            transform-style: preserve-3d;
+            transform-origin: left center;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 30;
+        }
+
+        /* Sliding Tab: Nestled inside the book layers */
+        .action-tab {
+            transform-origin: left center;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+            z-index: 20;
+            opacity: 1;
+            /* Fully visible */
+        }
+
+        /* Hover Triggers */
+        .project-group:hover .project-cover {
+            transform: rotateY(-45deg) scale(1);
+        }
+
+        .project-group:hover .action-tab {
+            transform: translate3d(35px, 0, 0) rotateZ(12deg);
+            opacity: 1;
+        }
+
+        /* Continuous text marquee animation loop */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-zinc-800">
+
+    <header class="w-full py-6 border-b border-zinc-900/60 sticky top-0 bg-[#0b0b0c]/80 backdrop-blur-md z-50">
+        <nav
+            class="max-w-5xl mx-auto flex justify-center space-x-12 text-[11px] uppercase tracking-widest font-bold text-zinc-500">
+            <a href="#" class="hover:text-white transition-colors">Home</a>
+            <!--
+            <a href="#" class="hover:text-white transition-colors">Projects</a>
+            <a href="#" class="hover:text-white transition-colors">About</a>
+            <a href="#" class="hover:text-white transition-colors">Contact</a>
+            -->
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-20 space-y-1">
+
+        <!-- HERO SECTION -->
+        <section id="hero"
+            class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center border-b border-zinc-900/60">
+            <!-- Left Side: Text and Actions -->
+            <div class="lg:col-span-7 space-y-10">
+                <!-- Recruiter Hook / Badge -->
+                <div
+                    class="inline-flex items-center space-x-2 bg-zinc-900/80 border border-zinc-800/80 px-3 pt-1.5 pb-1.5 rounded-full">
+                    <span class="flex h-2 w-2 relative">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-400">AI Research &
+                        Engineering Portfolio</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1
+                    class="text-4xl sm:text-4xl md:text-5xl xl:text-5xl font-black text-white uppercase tracking-tight leading-[1.05] sm:leading-[1.02]">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-sky-500 to-purple-500">3
+                        Proven</span> Performance Gains
+                         in model design and training
+                </h1>
+
+                <!-- Subheadline / Pitch -->
+                <p class="text-sm sm:text-base text-zinc-400 font-medium max-w-xl leading-relaxed tracking-wide">
+                    An independent literature synthesis evaluating state-of-the-art frameworks shown to improve a model. 
+                    This review maps highly selective, industry-grade, and heavily-cited methodologies to enhance a model's 
+                    reasoning capacity, complexity-handling ability, and labeling performance.
+                </p>
+
+                <!-- Call to Actions -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+                    <a href="ReviewPaper_v.20.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf"
+                        class="w-full sm:w-auto bg-white text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl hover:bg-zinc-200 transition-all flex items-center justify-center space-x-2 shadow-lg shadow-white/5">
+                        <span>Read Review</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    <a href="upcoming.html" rel="noopener noreferrer"
+                        class="w-full sm:w-auto border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-colors flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-github text-sm"></i>
+                        <span>View Code and Full Paper</span>
+                    </a>
+                </div>
+
+                
+            </div>
+
+            <!-- Right Side: Custom Architecture Diagram -->
+            <div class="lg:col-span-5 w-full flex justify-center items-center">
+                <div
+                    class="w-full max-w-[420px] aspect-square rounded-2xl bg-zinc-900/20 border border-zinc-900 p-6 flex flex-col justify-between relative overflow-hidden backdrop-blur-sm group">
+                    <!-- Subtle Glow effect -->
+                    <div
+                        class="absolute -top-10 -right-10 w-40 h-40 bg-sky-500/5 rounded-full blur-3xl transition-opacity group-hover:opacity-100">
+                    </div>
+
+                    <!-- SVG Architecture Flow -->
+                    <div class="py-6 flex justify-center items-center flex-grow">
+                        <svg viewBox="0 0 320 200" class="w-full h-auto text-zinc-700 font-sans font-bold"
+                            style="font-size: 10px; letter-spacing: 0.05em;">
+                            <!-- Grid Background Lines -->
+                            <line x1="0" y1="40" x2="320" y2="40" stroke="#18181b" stroke-dasharray="4" />
+                            <line x1="0" y1="100" x2="320" y2="100" stroke="#18181b" stroke-dasharray="4" />
+                            <line x1="0" y1="160" x2="320" y2="160" stroke="#18181b" stroke-dasharray="4" />
+                            <line x1="100" y1="0" x2="100" y2="200" stroke="#18181b" stroke-dasharray="4" />
+                            <line x1="220" y1="0" x2="220" y2="200" stroke="#18181b" stroke-dasharray="4" />
+
+                            <!-- Input Node -->
+                            <rect x="10" y="75" width="65" height="50" rx="8" fill="#18181b" stroke="#27272a"
+                                stroke-width="1" />
+                            <text x="42.5" y="100" fill="#a1a1aa" text-anchor="middle" font-size="9">RAW AI</text>
+                            <text x="42.5" y="112" fill="#52525b" text-anchor="middle" font-size="8">MODELS</text>
+
+                            <!-- Flow Arrows from Input -->
+                            <path d="M 75 100 L 115 50" fill="none" stroke="#dc2626" stroke-width="1.5"
+                                stroke-dasharray="3" opacity="0.7" />
+                            <path d="M 75 100 L 115 100" fill="none" stroke="#0284c7" stroke-width="1.5"
+                                stroke-dasharray="3" opacity="0.7" />
+                            <path d="M 75 100 L 115 150" fill="none" stroke="#9333ea" stroke-width="1.5"
+                                stroke-dasharray="3" opacity="0.7" />
+
+                            <!-- Tool Node 1: Red -->
+                            <rect x="115" y="25" width="90" height="50" rx="8" fill="#fff" stroke="#dc2626"
+                                stroke-width="1.5" />
+                            <text x="160" y="48" fill="#18181b" text-anchor="middle" font-size="9">01. CoT</text>
+                            <text x="160" y="60" fill="#dc2626" text-anchor="middle" font-size="8">PROMPTING</text>
+
+                            <!-- Tool Node 2: Blue -->
+                            <rect x="115" y="75" width="90" height="50" rx="8" fill="#fff" stroke="#0284c7"
+                                stroke-width="1.5" />
+                            <text x="160" y="98" fill="#18181b" text-anchor="middle" font-size="9">02. BEHAVIORAL</text>
+                            <text x="160" y="110" fill="#0284c7" text-anchor="middle" font-size="8">CLONING</text>
+
+                            <!-- Tool Node 3: Purple -->
+                            <rect x="115" y="125" width="90" height="50" rx="8" fill="#fff" stroke="#9333ea"
+                                stroke-width="1.5" />
+                            <text x="160" y="148" fill="#18181b" text-anchor="middle" font-size="9">03. GAUSSIAN</text>
+                            <text x="160" y="160" fill="#9333ea" text-anchor="middle" font-size="8">LATENCY MODEL</text>
+
+                            <!-- Output Arrows -->
+                            <path d="M 205 50 L 245 100" fill="none" stroke="#dc2626" stroke-width="1.5" />
+                            <path d="M 205 100 L 245 100" fill="none" stroke="#0284c7" stroke-width="1.5" />
+                            <path d="M 205 150 L 245 100" fill="none" stroke="#9333ea" stroke-width="1.5" />
+
+                            <!-- Output Node -->
+                            <rect x="245" y="75" width="65" height="50" rx="8" fill="#fff" stroke="#fff"
+                                stroke-width="1" />
+                            <text x="277.5" y="100" fill="#18181b" text-anchor="middle" font-size="9">OPTIMIZED</text>
+                            <text x="277.5" y="112" fill="#2563eb" text-anchor="middle" font-size="8">AI SYSTEM</text>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--PAPER Section-->
+        <section id="projects" class="space-y-16">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-24 pt-10">
+
+                <div class="project-group relative w-[280px] aspect-[3/4] project-perspective">
+                    <a href="paper.html#enhancing-reasoning"
+                        class="action-tab absolute top-6 bottom-6 right-0 w-48 bg-red-600 rounded-r-2xl flex flex-col justify-start items-end p-4 shadow-xl transform translate-x-2">
+                        <span
+                            class="text-[10px] uppercase font-black text-white rotate-0 whitespace-nowrap tracking-widest">
+                            Metrics</span>
+                        <i class="fa-solid fa-arrow-right text-white text-xs mt-3"></i>
+                    </a>
+
+                    <a href="paper.html#enhancing-reasoning"
+                        class="project-cover absolute inset-0 bg-white text-zinc-900 rounded-2xl p-4 shadow-xl flex flex-col justify-between border border-zinc-200">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block mb-6">//
+                                REASONING CAPACITY </span>
+                            <h3 class="text-lg font-extrabold leading-tight">
+                                Enhancing <span class="text-red-600 underline decoration-2">logical reasoning up to
+                                    59%</span> via advanced prompting.
+                            </h3>
+                        </div>
+                        <div class="flex justify-end items-righr pt-4 border-t border-zinc-100">
+                            <span class="text-[10px] font-bold uppercase">Click to see</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-group relative w-[280px] aspect-[3/4] project-perspective">
+                    <a href="paper.html#handling-complex-tasks"
+                        class="action-tab absolute top-6 bottom-6 right-0 w-48 bg-sky-600 rounded-r-2xl flex flex-col justify-start items-end p-4 shadow-xl transform translate-x-2">
+                        <span
+                            class="text-[10px] uppercase font-black text-white rotate-0 whitespace-nowrap tracking-widest">
+                            Architecture</span>
+                        <i class="fa-solid fa-arrow-right text-white text-xs mt-3"></i>
+                    </a>
+
+                    <a href="paper.html#handling-complex-tasks"
+                        class="project-cover absolute inset-0 bg-white text-zinc-900 rounded-2xl p-4 shadow-xl flex flex-col justify-between border border-zinc-200">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block mb-6">//
+                                COMPLEXITY HANDLING</span>
+                            <h3 class="text-lg font-extrabold leading-tight">
+                                Increasing <span class="text-sky-600 underline decoration-2">complex task success rate
+                                    up to 74.27%</span> via a Behavioral Cloning Model.
+                            </h3>
+                        </div>
+                        <div class="flex justify-end items-center pt-4 border-t border-zinc-100">
+                            <span class="text-[10px] font-bold uppercase">Click to see</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-group relative w-[280px] aspect-[3/4] project-perspective">
+                    <a href="paper.html#wrong-to-right"
+                        class="action-tab absolute top-6 bottom-6 right-0 w-48 bg-purple-600 rounded-r-2xl flex flex-col justify-start items-end p-4 shadow-xl transform translate-x-2">
+                        <span
+                            class="text-[10px] uppercase font-black text-white rotate-0 whitespace-nowrap tracking-widest">
+                            Equations</span>
+                        <i class="fa-solid fa-arrow-right text-white text-xs mt-3"></i>
+                    </a>
+
+                    <a href="paper.html#wrong-to-right"
+                        class="project-cover absolute inset-0 bg-white text-zinc-900 rounded-2xl p-4 shadow-xl flex flex-col justify-between border border-zinc-200">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 block mb-6">//
+                                LABELING OPTIMIZATION</span>
+                            <h3 class="text-lg font-extrabold leading-tight">
+                                <span class="text-purple-600 underline decoration-2"> Turning wrong labels into right labels</span> 
+                                while maintaining 97% precision and 10 orders of magnitude greater speed by using a Gaussian model.
+                            </h3>
+                        </div>
+                        <div class="flex justify-end items-center pt-4 border-t border-zinc-100">
+                            <span class="text-[10px] font-bold uppercase">Click to see</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ACADEMIC LOGS CONTINUOUS TICKER -->
+        <section
+            class="w-screen relative left-1/2 right-1/2 -mx-[50vw] overflow-hidden border-y border-zinc-900 bg-zinc-950/40 py-16">
+            <div class="flex whitespace-nowrap overflow-hidden space-y-6">
+                <div
+                    class="flex space-x-16 items-center animate-marquee text-[11px] font-mono tracking-widest uppercase text-zinc-600">
+                    <span>[SYS_LOG: REASONING_EVAL]</span>
+                    <span class="text-zinc-400">COT PROMPTING</span>
+                    <span class="text-red-500">|| Reasoning depth is the largest layer number is a computational graph
+                    </span>
+
+                    <span>[SYS_LOG: MODEL_ARCHITECTURE]</span>
+                    <span class="text-zinc-400">BEHAVIORAL CLONING </span>
+                    <span class="text-sky-400">|| BC MODEL = A TRANSFORMER MODEL WITH A SELF ATTENTION MODULE</span>
+
+                    <span>[SYS_LOG: MATH_MATH]</span>
+                    <span class="text-zinc-400">LATENCY MODELING</span>
+                    <span class="text-purple-400">|| Each keypress C is modeled as a Gaussian distribution 𝒩(𝜇, 𝜎)
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!--PROJECTS section-->
+        <section id="projects" class="space-y-8">
+            <div class="text-center space-y-3">
+                <h2 class="text-4xl font-black text-white uppercase inline-block origin-center"
+                    style="letter-spacing: 0.25em; transform: scaleX(1.1);">Other Projects</h2>
+                <p class="text-xs text-zinc-400 font-semibold tracking-wide mt-2">Check out the favorites</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace Canvas Grid -->
+        <div class="p-6 sm:p-8 grid lg:grid-cols-12 gap-6 bg-[#0f0f12]">
+
+            <!-- COLUMN 2: Favorites File Manager Panel (9 Cols) -->
+            <div class="lg:col-span-12 bg-[#16161a] border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between relative overflow-hidden">
+                <div class="space-y-4">
+            
+                    <!-- Folder Grid -->
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <a href="https://github.com/vantrinh7/ShellProgram" class="group bg-[#0f0f12]/60 border border-zinc-800/50 hover:border-sky-500/30 p-4 rounded-xl flex flex-col items-center text-center space-y-2.5 transition-all">
+                            <svg viewBox="0 0 100 80" class="w-14 h-11 drop-shadow-md transform group-hover:scale-105 transition-transform">
+                                <path d="M 0 10 Q 0 4 6 4 L 32 4 Q 38 4 42 9 L 48 15 L 94 15 Q 100 15 100 21 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0284c7" />
+                                <path d="M 0 22 L 100 22 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0ea5e9" />
+                            </svg>
+                            <span class="text-xs font-bold text-zinc-400 group-hover:text-white transition-colors">AI Research</span>
+                        </a>
+
+                        <a href="https://github.com/vantrinh7/MemoryManager" class="group bg-[#0f0f12]/60 border border-zinc-800/50 hover:border-sky-500/30 p-4 rounded-xl flex flex-col items-center text-center space-y-2.5 transition-all">
+                            <svg viewBox="0 0 100 80" class="w-14 h-11 drop-shadow-md transform group-hover:scale-105 transition-transform">
+                                <path d="M 0 10 Q 0 4 6 4 L 32 4 Q 38 4 42 9 L 48 15 L 94 15 Q 100 15 100 21 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0284c7" />
+                                <path d="M 0 22 L 100 22 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0ea5e9" />
+                            </svg>
+                            <span class="text-xs font-bold text-zinc-400 group-hover:text-white transition-colors">Apps</span>
+                        </a>
+
+                        <a href="https://github.com/vantrinh7/Tetris" class="group bg-[#0f0f12]/60 border border-zinc-800/50 hover:border-sky-500/30 p-4 rounded-xl flex flex-col items-center text-center space-y-2.5 transition-all">
+                            <svg viewBox="0 0 100 80" class="w-14 h-11 drop-shadow-md transform group-hover:scale-105 transition-transform">
+                                <path d="M 0 10 Q 0 4 6 4 L 32 4 Q 38 4 42 9 L 48 15 L 94 15 Q 100 15 100 21 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0284c7" />
+                                <path d="M 0 22 L 100 22 L 100 74 Q 100 80 94 80 L 6 80 Q 0 80 0 74 Z" fill="#0ea5e9" />
+                            </svg>
+                            <span class="text-xs font-bold text-zinc-400 group-hover:text-white transition-colors">APIs</span>
+                        </a>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--CONTACT SECTION-->
+        <section class="w-full flex flex-col items-end pt-20 pb-20">
+            <h2 class="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase inline-block origin-right"
+                    style="letter-spacing: 0.25em; transform: scaleX(1.15);">
+                    Keep in touch<span class="text-purple-500 font-bold ml-1">?</span>
+            </h2>
+            <div class="mt-6 text-right">
+                <p class="text-[10px] uppercase font-bold tracking-widest text-zinc-500 mb-2">General
+                        Inquiries</p>
+                <a href="mailto:louyi.ux@gmail.com"
+                        class="text-xl font-semibold text-zinc-300 hover:text-white transition-colors underline decoration-zinc-800 underline-offset-8">
+                        vanytrinh7@gmail.com
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

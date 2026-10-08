@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0b0c;
+            color: #d1d1d6;
+        }
+    </style>
+
+</head>
+
+<body class="selection:bg-zinc-800">
+
+    <header class="w-full py-6 border-b border-zinc-900/60 sticky top-0 bg-[#0b0b0c]/80 backdrop-blur-md z-50">
+        <nav
+            class="max-w-5xl mx-auto flex justify-center space-x-12 text-[11px] uppercase tracking-widest font-bold text-zinc-500">
+            <a href="#" class="hover:text-white transition-colors">Home</a>
+            <a href="#" class="hover:text-white transition-colors">Projects</a>
+            <a href="#" class="hover:text-white transition-colors">About</a>
+            <a href="#" class="hover:text-white transition-colors">Contact</a>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-20 space-y-10">
+
+
+        <div class="bg-zinc-950/40 border border-zinc-900 rounded-2xl p-6 sm:p-8 space-y-6" >
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-900 pb-4 scroll-mt-24" id="enhancing-reasoning">
+                <div>
+                    <h3 class="text-xl font-bold text-white uppercase mt-0.5" >Enhancing reasoning</h3>
+                </div>
+                <span class="text-xs font-mono text-zinc-500 bg-zinc-900 px-3 py-1 rounded">Wu et al. (2024) <br> Dziri
+                    et al. (2023)</span>
+            </div>
+
+            <p class="text-zinc-300 tracking-wide">Large language models rely heavily on statistical pattern matching
+                instead of strict logical inference. When subjected to counterfactual modifications, such as executing
+                arithmetic in bases other than base 10, or identifying spatial object coordinates when orientation axes
+                are swapped, rotated, or randomly permuted—prominent models such as GPT-4, GPT-3.5, Claude, and PaLM-2
+                suffer severe performance degradation. Further examination shows when algorithms are represented as
+                computational graphs, models would reduce multistep reasoning computational graphs into subgraph pattern
+                matching. 
+
+            <div class="flex justify-center w-full my-4">
+                <img src="images/addition.png" width="900" height="400">
+            </div>
+
+            <div class="flex justify-center w-full my-4">
+                <img src="images/graph.png" width="700" height="800">
+            </div>
+                
+            <p class="text-zinc-300 tracking-wide">Chain-of-Thought (CoT) prompting mitigates this logic gap by
+                encouraging step-by-step logical reasoning instead of rote recitation. Performance evaluations across word 
+                manipulation operations underscore massive performance jumps moving
+                from zero-shot environments to few-shot reasoning regimens.
+            </p>
+
+            <div class="overflow-x-auto border border-zinc-900 rounded-xl">
+                <table class="w-full text-left font-mono text-xs border-collapse">
+                    <thead>
+                        <tr class="bg-zinc-900/50 text-zinc-400 border-b border-zinc-900">
+                            <th class="p-4 font-bold text-zinc-300">Prompt Setting Context</th>
+                            <th class="p-4">CL (Cycle Letters)</th>
+                            <th class="p-4">A1 (Anagram Mid-1)</th>
+                            <th class="p-4">A2 (Anagram Mid-2)</th>
+                            <th class="p-4">RI (Random Insert)</th>
+                            <th class="p-4">RW (Reverse Words)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-900/60 text-zinc-400">
+                        <tr class="hover:bg-zinc-900/20 transition-colors">
+                            <td class="p-4 font-bold text-zinc-500">GPT-3 Zero-Shot</td>
+                            <td class="p-4 text-red-400/80">3.66%</td>
+                            <td class="p-4 text-red-400/80">2.28%</td>
+                            <td class="p-4">8.91%</td>
+                            <td class="p-4">8.26%</td>
+                            <td class="p-4">0.09%</td>
+                        </tr>
+                        
+                        <tr
+                            class="bg-emerald-950/10 hover:bg-emerald-950/20 transition-colors text-emerald-400 font-bold">
+                            <td class="p-4 text-zinc-200">GPT-3 Few-Shot</td>
+                            <td class="p-4">37.90%</td>
+                            <td class="p-4">15.10%</td>
+                            <td class="p-4">39.70%</td>
+                            <td class="p-4 text-emerald-300">67.20%</td>
+                            <td class="p-4">0.44%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-[10px] text-zinc-100 font-mono bg-zinc-900/30 p-2 rounded">
+                💡 <b class="text-zinc-400">Analysis:</b> Performance by Few-Shot prompting was 59% more than One-Shot prompting in RI tasks.
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+            <a href="ReviewPaper_v.20.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf"
+                class="w-full sm:w-auto border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-lg shadow-white/5">
+                <span>Read Review </span>
+            </a>
+
+        </div>
+
+        <div class="bg-zinc-950/40 border border-zinc-900 rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-900 pb-4 scroll-mt-24" id="handling-complex-tasks">
+                <div>
+                    <h3 class="text-xl font-bold text-white uppercase mt-0.5">Handling complex tasks</h3>
+                </div>
+                <span class="text-xs font-mono text-zinc-500 bg-zinc-900 px-3 py-1 rounded">Rawles et al. (2023) <br>
+                    Zhang & Zhang (2024)</span>
+            </div>
+
+            <p class="text-zinc-300 tracking-wide">
+                When deployed on long-horizon, complex tasks such as web navigation, multistep installation, or
+                multi-app manipulation, large language models tend to lose sight of their ultimate objectives, struggle to maintain
+                consistent behavior, and fail to complete the task. By implementing behavioral
+                cloning architecture to mimic sequential human actions, models achieve stark improvements in success
+                rates. A previously studied behavioral cloning (BC) model achieved about
+                twice as high success rate as finetuned models such as Llama and PaLM.
+            </p>
+            <div
+                class="lg:col-span-5 bg-zinc-950/60 border border-zinc-900 rounded-xl p-5 flex flex-col justify-between space-y-4">
+                <div class="flex justify-between items-center pb-2 border-b border-zinc-900">
+                    <span class="text-[10px] font-mono uppercase text-zinc-500 font-bold tracking-wider">//
+                        Main Result</span>
+                    <span class="text-[9px] font-mono text-zinc-400 font-bold">Success Rate (%) </span>
+                </div>
+                <div class="space-y-4 py-2 font-mono">
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-zinc-200">
+                            <span>BC-History Agent </span>
+                            <span class="text-sky-400">73.1% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2.5 rounded-full overflow-hidden border border-zinc-800">
+                            <div class="bg-gradient-to-r from-sky-500 to-indigo-500 h-full rounded-full"
+                                style="width: 73.1%;"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-zinc-200">
+                            <span>BC Agent </span>
+                            <span class="text-sky-400">68.7% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2.5 rounded-full overflow-hidden border border-zinc-800">
+                            <div class="bg-gradient-to-r from-sky-500 to-indigo-500 h-full rounded-full"
+                                style="width: 68.7%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-zinc-400">
+                            <span>GPT-4v </span>
+                            <span>53.0% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
+                            <div class="bg-zinc-400 h-full rounded-full" style="width: 53.0%;"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-zinc-400">
+                            <span>PaLM-2-hist5-CoT </span>
+                            <span>39.6% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
+                            <div class="bg-zinc-400 h-full rounded-full" style="width: 39.6%;"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-zinc-400">
+                            <span>PaLM-2 </span>
+                            <span>30.9% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
+                            <div class="bg-zinc-400 h-full rounded-full" style="width: 30.9%;"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-zinc-400">
+                            <span>Llama-2-7B (Fine-tuned) </span>
+                            <span>28.4% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
+                            <div class="bg-zinc-400 h-full rounded-full" style="width: 28.4%;"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-zinc-400">
+                            <span>ChatGPT-turbo-3.5-CoT </span>
+                            <span>7.72% </span>
+                        </div>
+                        <div class="w-full bg-zinc-900 h-2 rounded-full overflow-hidden">
+                            <div class="bg-zinc-400 h-full rounded-full" style="width: 7.72%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Call to Action -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+            <a href="ReviewPaper_v.20.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf"
+                class="w-full sm:w-auto border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-lg shadow-white/5">
+                <span>Read Review </span>
+            </a>
+
+        </div>
+
+        <div class="bg-zinc-950/40 border border-zinc-900 rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-900 pb-4 scroll-mt-24" id="wrong-to-right">
+                <div>
+                    <h3 class="text-xl font-bold text-white uppercase mt-0.5">Turning wrong labels into right labels
+                    </h3>
+                </div>
+                <span class="text-xs font-mono text-zinc-500 bg-zinc-900 px-3 py-1 rounded">Krishna et al. (2016)</span>
+            </div>
+            <p class="text-zinc-300 tracking-wide">
+                Erroneous labels can be turned into correct labels algorithmically. In Krishna et al. (2016), when a human annotator sees 
+                an image that is displayed for 400 ms alongside a binary question, the annotator is asked to press the spacebar when 
+                the answer is "Yes" to the question. For each keypress, the model creates as a Gaussian
+                probability distribution of an image being correctly identified about 400ms before the keypress. 
+                The model then uses the keypress latency to predict the correct labels.
+
+            </p>
+
+            <div class="flex justify-center w-full my-4">
+                <img src="images/keypress.png" width="900" height="1000" alt="keypress">
+            </div>
+
+            <p class="text-zinc-300 tracking-wide">
+                By mapping each individual keystroke action delay as a Gaussian distribution 𝒩(𝜇, 𝜎), labeling
+                inaccuracies are programmatically transformed into ground-truth data. Furthermore, this method is 
+                6 to 11 orders of magnitude faster than the known majority voting approach.
+            </p>
+            <div class="p-6 bg-zinc-900/10 border border-zinc-900 rounded-xl space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center font-mono">
+
+                    <div class="p-4 bg-zinc-950 rounded-xl border border-zinc-900 flex flex-col justify-between">
+                        <span class="text-[9px] text-zinc-500 uppercase tracking-widest block mb-2">Observed Gaussian
+                            Distribution</span>
+                        <div class="h-20 flex items-center justify-center py-1">
+                            <svg viewBox="0 0 100 40" class="w-full h-full overflow-visible">
+                                <path d="M 5 38 C 30 38, 32 5, 50 5 C 68 5, 70 38, 95 38" fill="none" stroke="#9333ea"
+                                    stroke-width="2" />
+                                <line x1="50" y1="5" x2="50" y2="38" stroke="#a21caf" stroke-dasharray="1.5"
+                                    stroke-width="0.75" />
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-purple-400 mt-2 block">Keypress Latency</span>
+                    </div>
+
+                    <div
+                        class="p-4 bg-zinc-950 rounded-xl border border-zinc-900 flex flex-col justify-center items-center">
+                        <span class="text-[10px] text-zinc-500 uppercase tracking-wider mb-2">Mathematical
+                            Transforms</span>
+                        <div
+                            class="text-xs text-zinc-300 font-mono py-2 px-3 bg-zinc-900 rounded-lg border border-zinc-800">
+                            $$P(L_i | D_w) = \frac{P(D_W | L_i)P(L_i)}{P(D_W)}$$
+                        </div>
+                        <span class="text-[9px] text-zinc-600 mt-2">Bayesian Inference</span>
+                    </div>
+
+                    <div
+                        class="p-4 bg-zinc-950 rounded-xl border border-zinc-900 flex flex-col justify-between text-left">
+                        <span class="text-[9px] text-zinc-500 uppercase tracking-widest block text-center mb-2">Table 4
+                            Results</span>
+                        <div class="space-y-1.5 text-[10px] font-mono text-zinc-400 py-1">
+                            <div class="flex justify-between border-b border-zinc-900/60 pb-0.5">
+                                <span class="text-zinc-500">Task given to model </span>
+                                <span class="font-bold text-zinc-300">Precision | Speedup</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Image verification </span>
+                                <span class="text-emerald-400 font-bold">0.97 | 10.20×</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sentiment analysis</span>
+                                <span class="text-emerald-400">0.94 | 10.20×</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Topic detection</span>
+                                <span class="text-emerald-400">0.95 | 10.75×</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+            <a href="ReviewPaper_v.20.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf"
+                class="w-full sm:w-auto border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-lg shadow-white/5">
+                <span>Read Review </span>
+            </a>
+
+        </div>
+
+    </main>
+</body>
+
+</html>
